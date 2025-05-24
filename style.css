@@ -41,6 +41,12 @@ input{
  padding:10px;
  border:none;
 }
+input:focus{
+    outline:none;
+    border:2px solid #fff;
+    background-color:#1a1a3c;
+    color:#fff;
+}
 button{
     padding:10px;
     margin:10px 0px;
@@ -50,4 +56,11 @@ button{
     border:none;
     border-radius:2px;
     cursor:pointer;
+}
+
+@media(max-width:400px){
+    .container{
+        width:90%;
+        margin:100px auto;
+    }
 }

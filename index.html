@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=.container, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form UI + Validation</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -10,16 +10,44 @@
     <main class="container">
         <h2>Create Account</h2>
         <form action="#">
-            <label for="name">Email</label>
-            <input type="email" id="email" placeholder="example@yahoo.com" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="example@yahoo.com" >
 
             <label for="password">Password</label>
-            <input type="password" id="password" required>
-        </form>
-        <span> No account?</span>
-        <a href="signup.html">Signup</a>
+            <input type="password" id="password" >
+                <span> No account?</span>
+
+                <a href="signup.html">Signup</a>
 <br/>
-        <button type="submit">Login</button>
+        <button type="submit" id="submit">Login</button>
+        </form>
+        
     </main>
+    <script>
+        const form = document.querySelector('form');
+        const email = document.getElementById('email');
+        const pwd = document.getElementById('password');
+
+        form.addEventListener('submit',function(e){
+            e.preventDefault(); //prevent form from submitting rapidly
+
+            //email validation
+
+            if(email.value.trim()===""||pwd.value.trim()===""){
+                alert("All Fields are required!");
+                return;
+            }
+
+            const emailPattern = /^[^@\s]+@[^@\s]+\.[a-z]{2,3}$/i;
+            if(!emailPattern.test(email.value)){
+              alert("Please Eneter a Vaild Email address");
+              return;
+            } 
+            // if all is good
+           
+                alert("Login Suceesfully");
+            
+        })
+    </script>
 </body>
 </html>
